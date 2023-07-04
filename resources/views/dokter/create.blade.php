@@ -4,7 +4,7 @@
     <!-- Main Content -->
     <div id="content">
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <nav class="navbar navbar-expand navbar-light topbar static-top mb-4 bg-white shadow">
 
             <!-- Sidebar Toggle (Topbar) -->
             <form class="form-inline">
@@ -19,11 +19,11 @@
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
+                        <span class="d-none d-lg-inline small mr-2 text-gray-600">{{ Auth::user()->name }}</span>
                         <img class="img-profile rounded-circle" src="{{ asset('img/undraw_profile.svg') }}">
                     </a>
                     <!-- Dropdown - User Information -->
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                    <div class="dropdown-menu dropdown-menu-right animated--grow-in shadow" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                                    document.getElementById('logout-form').submit();">
@@ -47,10 +47,10 @@
             <h1 class="h3 mb-2 text-gray-800">Tambah Pasien</h1>
             <p class="mb-4">Isi formulir pendaftaran berikut untuk menambahkan pasien baru</p>
             <!-- DataTales Example -->
-            <div class="card shadow mb-4">
+            <div class="card mb-4 shadow">
                 <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Formulir Pasien Baru</h6>
+                <div class="card-header d-flex align-items-center justify-content-between flex-row py-3">
+                    <h6 class="font-weight-bold text-primary m-0">Formulir Pasien Baru</h6>
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('pasien.store') }}" enctype="multipart/form-data">
@@ -75,7 +75,6 @@
                                     <option value="{{ $perjanjian->id }}">{{ $perjanjian->pasien_id }}</option>
                                 @endforeach
                             </select>
-                            {{-- @endforeach --}}
                         </div>
                         <div class="form-group">
                             <label for="dokter_id">Nama Dokter</label>

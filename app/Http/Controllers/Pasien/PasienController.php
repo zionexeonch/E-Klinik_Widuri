@@ -57,9 +57,13 @@ class PasienController extends Controller
      */
     public function store(PasienRequest $request)
     {
+        $p = Perjanjian::where('nama_pasien', $request->nama_pasien)->select('id')->first();
         $validatedData = $request->all();
         // dd($validatedData);
         $validatedData['tgl_datang'] = Carbon::now();
+        $validatedData['status'] = 'selesai';
+        $validatedData['perjanjian_id'] = $p->id;
+
         Pasien::create($validatedData);
         return redirect()->route('dokter.index');
     }

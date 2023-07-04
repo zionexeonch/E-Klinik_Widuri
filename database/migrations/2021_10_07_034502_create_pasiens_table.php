@@ -22,9 +22,12 @@ class CreatePasiensTable extends Migration
             $table->string('nama_obat');
             $table->string('no_telp');
             $table->text('keluhan_pasien');
+            $table->string('status'); //selesai
+            $table->unsignedBigInteger('perjanjian_id');
             $table->unsignedBigInteger('dokter_id');
             $table->unsignedBigInteger('pasien_id');
             // $table->unsignedBigInteger('obat_id');
+            $table->foreign('perjanjian_id')->references('id')->on('perjanjians')->onDelete('cascade');
             $table->foreign('dokter_id')->references('id')->on('dokters')->onDelete('cascade');
             $table->foreign('pasien_id')->references('id')->on('users')->onDelete('cascade');
             // $table->foreign('pasien_id')->references('id')->on('perjanjians')->onDelete('cascade');

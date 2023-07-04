@@ -24,6 +24,7 @@ class CreatePerjanjiansTable extends Migration
             $table->string('nama_obat')->nullable();
             $table->string('no_telp')->nullable();
             $table->text('keluhan_pasien')->nullable();
+            $table->text('status_perjanjian')->nullable()->default('tunda'); //tunda, selesai
             $table->unsignedBigInteger('dokter_id');
             $table->unsignedBigInteger('pasien_id')->nullable();
             // $table->unsignedBigInteger('dokter_id');

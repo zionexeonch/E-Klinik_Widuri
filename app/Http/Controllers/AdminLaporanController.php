@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pasien;
+use App\Models\Perjanjian;
 use Illuminate\Http\Request;
 
 class AdminLaporanController extends Controller
 {
     public function index()
     {
-        $pasien = Pasien::with(['dokter'])->get();
+        $pasien = Perjanjian::join('pasiens', 'pasiens.perjanjian_id', '=', 'perjanjians.id')
+            ->where('pasiens.status', '=', 'selesai')
+            ->get();
         $data = [
             'pasiens' => $pasien
         ];

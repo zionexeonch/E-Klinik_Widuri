@@ -4,7 +4,7 @@
     <!-- Main Content -->
     <div id="content">
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <nav class="navbar navbar-expand navbar-light topbar static-top mb-4 bg-white shadow">
             <!-- Sidebar Toggle (Topbar) -->
             <form class="form-inline">
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -18,7 +18,7 @@
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
+                        <span class="d-none d-lg-inline small mr-2 text-gray-600">{{ Auth::user()->name }}</span>
                         <img class="img-profile rounded-circle" src="{{ asset('img/undraw_profile.svg') }}">
                     </a>
                     <!-- Dropdown - User Information -->
@@ -47,11 +47,11 @@
             <h1 class="h3 mb-3 text-gray-800">Laporan</h1>
 
             <!-- DataTales Example -->
-            <div class="card shadow mb-4">
+            <div class="card mb-4 shadow">
                 <div class="card-header py-3">
                     <h5 class="font-weight-bold text-primary">Daftar Laporan
                         <span>
-                            <a href="#" class="btn ml-4 btn-primary font-weight-bold">
+                            <a href="#" class="btn btn-primary font-weight-bold ml-4">
                                 Cetak Laporan
                             </a>
                         </span>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table-bordered table" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr style="text-align: center">
                                     <th scope="col">No</th>
@@ -77,11 +77,11 @@
                                     <tr>
                                         <td>{{ $pasien->id }}</td>
                                         <td>{{ $pasien->nama_pasien }}</td>
-                                        <td>{{ $pasien->alamat_pasien }}</td>
-                                        <td>{{ $pasien->tgl_datang }}</td>
-                                        <td>{{ $pasien->nama_obat }}</td>
-                                        <td>{{ $pasien->no_telp }}</td>
-                                        <td>{{ $pasien->keluhan_pasien }}</td>
+                                        <td>{{ $pasien->pasien ? $pasien->pasien->alamat_pasien : '' }}</td>
+                                        <td>{{ $pasien->pasien ? $pasien->pasien->tgl_datang : '' }}</td>
+                                        <td>{{ $pasien->pasien ? $pasien->pasien->nama_obat : '' }}</td>
+                                        <td>{{ $pasien->pasien ? $pasien->pasien->no_telp : '' }}</td>
+                                        <td>{{ $pasien->pasien ? $pasien->pasien->keluhan_pasien : '' }}</td>
                                         <td>{{ $pasien->dokter_id }}</td>
                                     </tr>
                                 @endforeach

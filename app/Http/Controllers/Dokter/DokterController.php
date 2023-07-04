@@ -20,7 +20,9 @@ class DokterController extends Controller
     public function index()
     {
         // $pasien = Pasien::with(['dokter'])->get();
-        $pasien = Perjanjian::with(['user'])->where('nama_dokter', Auth::user()->name)->get()->collect();
+        $pasien = Perjanjian::with(['pasien'])->where('nama_dokter', Auth::user()->name)->get()->collect();
+        // $pasien = Pasien::get();
+        // dd($pasien);
         $obat = Obat::with('pasien')->get();
         $data = [
             'pasiens' => $pasien,
