@@ -51,8 +51,8 @@
                 <div class="card-header py-3">
                     <h5 class="font-weight-bold text-primary">Daftar Laporan
                         <span>
-                            <a href="#" class="btn btn-primary font-weight-bold ml-4">
-                                Cetak Laporan
+                            <a href="/pdf" class="btn btn-primary font-weight-bold ml-4">
+                                Donwload Laporan
                             </a>
                         </span>
                     </h5>

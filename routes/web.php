@@ -35,3 +35,4 @@ Route::resource('perjanjian', PerjanjianController::class)->middleware('checkRol
 Route::resource('obat', ObatController::class)->middleware('checkRole:dokter,admin');
 Route::resource('admin-dokter', AdminDokterController::class)->middleware('checkRole:admin');
 Route::get('admin-laporan', [AdminLaporanController::class, 'index'])->middleware('checkRole:admin');
+Route::get('/pdf', [AdminLaporanController::class, 'pdf'])->middleware('checkRole:admin');
